@@ -13,10 +13,9 @@
   background: white;
   padding: 2rem;
   border-radius: 1rem;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
   width: 100%;
   max-width: 400px;
-  position: relative;  /* pastikan cardnya juga relatif */
 }
 
 /* Title */
@@ -39,7 +38,6 @@
   color: #dc2626;
   font-size: 0.875rem;
   margin-top: 0.25rem;
-  text-align: center;
 }
 
 /* Form */
@@ -51,7 +49,6 @@
 
 .form-group {
   position: relative;
-  margin-bottom: 20px; /* Menambah jarak antara form field */
 }
 
 .form-input {
@@ -61,7 +58,6 @@
   border-radius: 0.5rem;
   outline: none;
   font-size: 1rem;
-  box-sizing: border-box; /* Agar padding dan border tidak mempengaruhi lebar input */
 }
 
 .form-input:focus {
@@ -72,17 +68,13 @@
 .form-label {
   position: absolute;
   left: 1rem;
-  top: 1rem; /* Pastikan label berada di atas */
+  top: 0.75rem;
   color: #6b7280;
   font-size: 0.875rem;
   transition: all 0.2s ease;
   pointer-events: none;
-  font-weight: bold;
-  background-color: white;  /* Pastikan background putih supaya tulisan tidak tersembunyi */
-  padding: 0 0.25rem;  /* Menambah padding untuk memastikan label tidak tumpang tindih */
 }
 
-/* Saat input fokus atau tidak kosong */
 .form-input:focus + .form-label,
 .form-input:not(:placeholder-shown) + .form-label {
   top: -0.5rem;

@@ -1,7 +1,8 @@
-import type { NextConfig } from "next";
+import { NextConfig } from 'next';
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  reactStrictMode: true,  // Mengaktifkan React Strict Mode (opsional)
+  turbopack: {}           // Mengaktifkan Turbopack (opsional, bisa ditambahkan jika perlu)
 };
 
 export default nextConfig;

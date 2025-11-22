@@ -1,0 +1,19 @@
+/* src/styles/riwayat.css */
+.riwayat-container {
+  padding: 2rem;
+}
+
+.riwayat-container table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.riwayat-container th, .riwayat-container td {
+  padding: 1rem;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.riwayat-container th {
+  background-color: #f4f4f4;
+}

@@ -1,0 +1,31 @@
+/* src/styles/transaksi.css */
+.transaksi-container {
+  padding: 2rem;
+}
+
+.transaksi-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.transaksi-form input {
+  margin-bottom: 1rem;
+  padding: 0.75rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 0.25rem;
+}
+
+.transaksi-form button {
+  padding: 1rem;
+  background-color: #6366f1;
+  color: white;
+  border: none;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.transaksi-form button:hover {
+  background-color: #4f46e5;
+}

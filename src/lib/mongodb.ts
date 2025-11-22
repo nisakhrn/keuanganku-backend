@@ -1,11 +1,29 @@
-// src/lib/mongodb.ts
-import { MongoClient } from 'mongodb';
+import { MongoClient } from "mongodb";
 
-const client = new MongoClient(process.env.MONGODB_URI || '');  // Pastikan URI sudah ada
+const uri = process.env.MONGODB_URI;
+const options = {};
 
-export const connectToDatabase = async () => {
-  // Tidak perlu mengecek isConnected, cukup melakukan connect
-  await client.connect();
-  const db = client.db(process.env.DB_NAME || '');  // Pilih database
-  return db;
-};
+if (!uri) {
+  throw new Error("❌ MONGODB_URI tidak ditemukan. Pastikan ada di .env.local!");
+}
+
+let client;
+let clientPromise: Promise<MongoClient>;
+
+declare global {
+  // Trick untuk menghindari duplikasi client pada Hot Reload Next.js
+  var _mongoClientPromise: Promise<MongoClient>;
+}
+
+if (process.env.NODE_ENV === "development") {
+  if (!global._mongoClientPromise) {
+    client = new MongoClient(uri, options);
+    global._mongoClientPromise = client.connect();
+  }
+  clientPromise = global._mongoClientPromise;
+} else {
+  client = new MongoClient(uri, options);
+  clientPromise = client.connect();
+}
+
+export default clientPromise;

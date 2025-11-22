@@ -1,91 +1,89 @@
-// src/pages/register.tsx
-import { useState } from 'react';
-import { useAppContext } from '../components/AppContext';  // Perbaiki path import
-import Link from 'next/link';  // Import Link untuk navigasi
+"use client";
+import Link from "next/link";
+import { useState } from "react";
 
-const Register = () => {
-  const { register } = useAppContext() || { register: () => ({ success: false, message: 'Fallback' }) };
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [passwordConfirmation, setPasswordConfirmation] = useState('');
+export default function Register() {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    password: "",
+    password_confirmation: "",
+  });
+
   const [errors, setErrors] = useState<any>({});
-  const [success, setSuccess] = useState<string>('');
+  const [success, setSuccess] = useState("");
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setErrors({});
-    const { name, value } = e.target;
-    if (name === 'passwordConfirmation' && value !== password) {
-      setErrors({ ...errors, passwordConfirmation: 'Password tidak sama' });
-    }
-    if (name === 'email' && !/^\S+@\S+\.\S+$/.test(value)) {
-      setErrors({ ...errors, email: 'Email tidak valid' });
-    }
-    // Handle other field changes
-    if (name === 'name') setName(value);
-    if (name === 'email') setEmail(value);
-    if (name === 'password') setPassword(value);
-    if (name === 'passwordConfirmation') setPasswordConfirmation(value);
+  const handleChange = (e: any) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: any) => {
     e.preventDefault();
+    setErrors({});
+    setSuccess("");
 
-    if (password !== passwordConfirmation) {
-      setErrors({ passwordConfirmation: 'Password tidak sama' });
+    if (formData.password !== formData.password_confirmation) {
+      setErrors({ password_confirmation: "Password tidak sama" });
       return;
     }
 
-    const result = register(name, email, password);
-    if (result.success) {
-      setSuccess('Registrasi berhasil! Silakan login.');
-      // Clear form
-      setName('');
-      setEmail('');
-      setPassword('');
-      setPasswordConfirmation('');
-    } else {
-      setErrors({ general: result.message });
+    const res = await fetch("/api/register", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(formData),
+    });
+
+    const data = await res.json();
+
+    if (!res.ok) {
+      setErrors({ general: data.message });
+      return;
     }
+
+    setSuccess("Registrasi berhasil! Silakan login.");
+
+    setFormData({
+      name: "",
+      email: "",
+      password: "",
+      password_confirmation: "",
+    });
   };
 
   return (
     <div className="register-wrapper">
-      {/* Back to Landing Page */}
       <Link href="/" className="back-arrow">←</Link>
 
-      {/* Register Card */}
       <div className="register-card">
         <h2 className="register-title">Register</h2>
 
         {success && <p className="register-success">{success}</p>}
         {errors.general && <p className="register-error">{errors.general}</p>}
 
-        {/* Form */}
-        <form className="register-form" onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} className="register-form">
+
           <div className="form-group">
             <input
               type="text"
               name="name"
-              placeholder="Full Name"
-              value={name}
+              placeholder=" "
+              className="form-input"
+              value={formData.name}
               onChange={handleChange}
               required
-              className="form-input"
             />
             <label className="form-label">Name</label>
-            {errors.name && <p className="register-error">{errors.name}</p>}
           </div>
 
           <div className="form-group">
             <input
               type="email"
               name="email"
-              placeholder="Email"
-              value={email}
+              placeholder=" "
+              className="form-input"
+              value={formData.email}
               onChange={handleChange}
               required
-              className="form-input"
             />
             <label className="form-label">Email</label>
             {errors.email && <p className="register-error">{errors.email}</p>}
@@ -95,43 +93,39 @@ const Register = () => {
             <input
               type="password"
               name="password"
-              placeholder="Password"
-              value={password}
+              placeholder=" "
+              className="form-input"
+              value={formData.password}
               onChange={handleChange}
               required
-              className="form-input"
             />
             <label className="form-label">Password</label>
-            {errors.password && <p className="register-error">{errors.password}</p>}
           </div>
 
           <div className="form-group">
             <input
               type="password"
-              name="passwordConfirmation"
-              placeholder="Confirm Password"
-              value={passwordConfirmation}
+              name="password_confirmation"
+              placeholder=" "
+              className="form-input"
+              value={formData.password_confirmation}
               onChange={handleChange}
               required
-              className="form-input"
             />
             <label className="form-label">Confirm Password</label>
-            {errors.passwordConfirmation && (
-              <p className="register-error">{errors.passwordConfirmation}</p>
+            {errors.password_confirmation && (
+              <p className="register-error">{errors.password_confirmation}</p>
             )}
           </div>
 
           <button type="submit" className="btn-register">Register</button>
-        </form>
 
-        {/* Link to Login */}
-        <p className="register-login">
-          Already have an account?{' '}
-          <Link href="/login" className="login-link">Login</Link>
-        </p>
+          <p className="register-login">
+            Sudah punya akun?{" "}
+            <Link href="/login" className="login-link">Login</Link>
+          </p>
+        </form>
       </div>
     </div>
   );
-};
-
-export default Register;
+}

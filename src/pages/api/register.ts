@@ -1,36 +1,41 @@
-import type { NextApiRequest, NextApiResponse } from "next";
-import clientPromise from "@/lib/mongodb";
-import bcrypt from "bcryptjs";
+import { NextApiRequest, NextApiResponse } from "next";
+import clientPromise from "../../lib/mongodb"; // Import koneksi MongoDB
+import bcrypt from "bcryptjs"; // Untuk mengenkripsi password
 
-export default async function handler(req: NextApiRequest, res: NextApiResponse) {
-  if (req.method !== "POST") {
-    return res.status(405).json({ message: "Method not allowed" });
-  }
-
-  try {
+const handler = async (req: NextApiRequest, res: NextApiResponse) => {
+  if (req.method === "POST") {
     const { name, email, password } = req.body;
 
-    const client = await clientPromise;
-    const db = client.db(process.env.DB_NAME);
-
-    // Cek email sudah dipakai
-    const existingUser = await db.collection("users").findOne({ email });
-    if (existingUser) {
-      return res.status(400).json({ message: "Email sudah terdaftar" });
+    if (!name || !email || !password) {
+      return res.status(400).json({ message: "Semua kolom wajib diisi!" });
     }
 
-    const hashedPassword = await bcrypt.hash(password, 10);
+    try {
+      const client = await clientPromise;
+      const db = client.db();
+      const usersCollection = db.collection("users");
 
-    // Simpan user
-    await db.collection("users").insertOne({
-      name,
-      email,
-      password: hashedPassword,
-    });
+      // Cek apakah email sudah ada di database
+      const existingUser = await usersCollection.findOne({ email });
+      if (existingUser) {
+        return res.status(400).json({ message: "Email sudah terdaftar!" });
+      }
 
-    return res.status(200).json({ message: "Registrasi berhasil!" });
-  } catch (error) {
-    console.error("REGISTER ERROR:", error);
-    return res.status(500).json({ message: "Terjadi kesalahan server" });
+      // Enkripsi password
+      const hashedPassword = await bcrypt.hash(password, 10);
+
+      // Insert new user
+      const newUser = { name, email, password: hashedPassword };
+      await usersCollection.insertOne(newUser);
+
+      return res.status(201).json({ message: "Registrasi berhasil!" });
+    } catch (error) {
+      console.error("Error during registration:", error);
+      return res.status(500).json({ message: "Terjadi kesalahan pada server!" });
+    }
+  } else {
+    res.status(405).json({ message: "Metode tidak diizinkan" });
   }
-}
+};
+
+export default handler;

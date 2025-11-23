@@ -1,5 +1,6 @@
 import { MongoClient } from "mongodb";
 
+// Pastikan MONGODB_URI terisi di file .env.local
 const uri = process.env.MONGODB_URI;
 const options = {};
 
@@ -10,6 +11,12 @@ if (!uri) {
 let client;
 let clientPromise: Promise<MongoClient>;
 
+declare global {
+  // Trick untuk menghindari duplikasi client pada Hot Reload Next.js
+  var _mongoClientPromise: Promise<MongoClient>;
+}
+
+// Untuk pengembangan, kita menggunakan global._mongoClientPromise
 if (process.env.NODE_ENV === "development") {
   if (!global._mongoClientPromise) {
     client = new MongoClient(uri, options);

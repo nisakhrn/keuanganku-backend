@@ -1,39 +1,31 @@
-import type { NextApiRequest, NextApiResponse } from "next";
-import clientPromise from "@/lib/mongodb";
-import bcrypt from "bcryptjs";
+import { NextApiRequest, NextApiResponse } from "next";
+import clientPromise from "@/lib/mongodb";  // Path menggunakan alias
 
-export default async function handler(req: NextApiRequest, res: NextApiResponse) {
-  if (req.method !== "POST") {
-    return res.status(405).json({ message: "Method not allowed" });
-  }
-
-  try {
+export default async (req: NextApiRequest, res: NextApiResponse) => {
+  if (req.method === "POST") {
     const { email, password } = req.body;
 
-    const client = await clientPromise;
-    const db = client.db(process.env.DB_NAME);
+    try {
+      const client = await clientPromise;
+      const db = client.db(process.env.DB_NAME);
+      const usersCollection = db.collection("users");
 
-    const user = await db.collection("users").findOne({ email });
+      // Check if user exists
+      const user = await usersCollection.findOne({ email });
+      if (!user) {
+        return res.status(400).json({ message: "Email tidak terdaftar" });
+      }
 
-    if (!user) {
-      return res.status(400).json({ message: "Email tidak ditemukan" });
+      // Check if password matches
+      if (user.password !== password) {
+        return res.status(400).json({ message: "Password salah" });
+      }
+
+      res.status(200).json({ message: "Login berhasil!", user });
+    } catch (error) {
+      res.status(500).json({ message: "Terjadi kesalahan pada server!" });
     }
-
-    const match = await bcrypt.compare(password, user.password);
-
-    if (!match) {
-      return res.status(400).json({ message: "Password salah" });
-    }
-
-    return res.status(200).json({
-      user: {
-        _id: user._id,
-        name: user.name,
-        email: user.email,
-      },
-    });
-  } catch (error) {
-    console.error("LOGIN ERROR:", error);
-    return res.status(500).json({ message: "Terjadi kesalahan server" });
+  } else {
+    res.status(405).json({ message: "Method Not Allowed" });
   }
-}
+};

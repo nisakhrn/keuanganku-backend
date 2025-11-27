@@ -22,6 +22,7 @@ export default function Register() {
     setErrors({});
     setSuccess("");
 
+    // Validasi password
     if (formData.password !== formData.password_confirmation) {
       setErrors({ password_confirmation: "Password tidak sama" });
       return;
@@ -41,7 +42,6 @@ export default function Register() {
     }
 
     setSuccess("Registrasi berhasil! Silakan login.");
-
     setFormData({
       name: "",
       email: "",
@@ -52,7 +52,9 @@ export default function Register() {
 
   return (
     <div className="register-wrapper">
-      <Link href="/" className="back-arrow">←</Link>
+      <Link href="/" className="back-arrow">
+        ←
+      </Link>
 
       <div className="register-card">
         <h2 className="register-title">Register</h2>
@@ -61,7 +63,6 @@ export default function Register() {
         {errors.general && <p className="register-error">{errors.general}</p>}
 
         <form onSubmit={handleSubmit} className="register-form">
-
           <div className="form-group">
             <input
               type="text"
@@ -118,11 +119,15 @@ export default function Register() {
             )}
           </div>
 
-          <button type="submit" className="btn-register">Register</button>
+          <button type="submit" className="btn-register">
+            Register
+          </button>
 
           <p className="register-login">
             Sudah punya akun?{" "}
-            <Link href="/login" className="login-link">Login</Link>
+            <Link href="/login" className="login-link">
+              Login
+            </Link>
           </p>
         </form>
       </div>

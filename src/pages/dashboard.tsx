@@ -1,15 +1,6 @@
-// src/pages/dashboard.tsx
 import Sidebar from '../components/Sidebar';  // Mengimpor Sidebar
 import { useState, useEffect } from 'react';  // Menggunakan hooks untuk state dan efek
 import Link from 'next/link';  // Menggunakan Link dari Next.js untuk navigasi
-
-// Definisikan tipe untuk transaksi
-interface Transaction {
-  deskripsi: string;
-  kategori: string;
-  jumlah: string;
-  tanggal: string;
-}
 
 const Dashboard = () => {
   const [stats, setStats] = useState({
@@ -17,21 +8,19 @@ const Dashboard = () => {
     monthlyIncome: 0,
     monthlyExpense: 0,
   });
-  const [transactions, setTransactions] = useState<Transaction[]>([]); // Tipe transaksi
+  const [transactions, setTransactions] = useState([]);  // Menggunakan state untuk menyimpan transaksi
 
   // Ambil data transaksi dan statistik
   useEffect(() => {
-    // Ambil data transaksi dari localStorage
     const user = JSON.parse(localStorage.getItem('currentUser') || '{}');
     const key = `transactions_${user?.email}`;
     const transactionsFromStorage = JSON.parse(localStorage.getItem(key) || '[]');
-
-    setTransactions(transactionsFromStorage); // Set data transaksi
+    setTransactions(transactionsFromStorage);  // Set data transaksi
     calculateStats(transactionsFromStorage);
   }, []);
 
   // Fungsi untuk menghitung saldo dan transaksi
-  const calculateStats = (transactions: Transaction[]) => {
+  const calculateStats = (transactions: any[]) => {
     const now = new Date();
     const currentMonth = now.getMonth();
     const currentYear = now.getFullYear();
@@ -69,7 +58,7 @@ const Dashboard = () => {
   // Logout function
   const handleLogout = () => {
     localStorage.removeItem('currentUser');
-    window.location.href = '/login';
+    window.location.href = '/login';  // Redirect ke login setelah logout
   };
 
   return (
@@ -79,7 +68,6 @@ const Dashboard = () => {
         <header className="dashboard-header">
           <h1 className="dashboard-title">Dashboard</h1>
           <div className="user-info">
-            {/* User info & Logout */}
             <span className="notification-icon">
               <i className="fas fa-bell"></i>
               <span className="notification-badge"></span>
@@ -100,7 +88,6 @@ const Dashboard = () => {
         <div className="dashboard-content">
           {/* Stats */}
           <div className="stats-grid">
-            {/* Saldo Total */}
             <div className="stat-card">
               <div className="stat-header">
                 <span className="stat-label">Saldo Total</span>
@@ -111,7 +98,6 @@ const Dashboard = () => {
               <div className="stat-value">{formatRupiah(stats.totalBalance)}</div>
             </div>
 
-            {/* Pemasukan Bulan Ini */}
             <div className="stat-card">
               <div className="stat-header">
                 <span className="stat-label">Pemasukan Bulan Ini</span>
@@ -122,7 +108,6 @@ const Dashboard = () => {
               <div className="stat-value">{formatRupiah(stats.monthlyIncome)}</div>
             </div>
 
-            {/* Pengeluaran Bulan Ini */}
             <div className="stat-card">
               <div className="stat-header">
                 <span className="stat-label">Pengeluaran Bulan Ini</span>
@@ -152,7 +137,6 @@ const Dashboard = () => {
                 </tr>
               </thead>
               <tbody>
-                {/* Cek jika transaksi ada */}
                 {transactions.length === 0 ? (
                   <tr>
                     <td colSpan={4} className="empty-state">
@@ -164,7 +148,7 @@ const Dashboard = () => {
                     </td>
                   </tr>
                 ) : (
-                  transactions.slice(0, 5).map((tx: Transaction, idx: number) => (
+                  transactions.slice(0, 5).map((tx: any, idx: number) => (
                     <tr key={idx}>
                       <td>{tx.deskripsi}</td>
                       <td>{tx.kategori}</td>

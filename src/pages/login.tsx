@@ -34,29 +34,28 @@ export default function Login() {
       return;
     }
 
-    // Simpan user JWT atau ID
+    // Simpan sesi pengguna setelah login berhasil
     localStorage.setItem("currentUser", JSON.stringify(data.user));
 
     setSuccess("Login berhasil!");
     setErrors({});
 
-    window.location.href = "/dashboard";
+    window.location.href = "/dashboard";  // Redirect ke dashboard setelah login berhasil
   };
 
   return (
     <div className="login-wrapper">
-      <Link href="/" className="back-arrow">⟵</Link>
+      <Link href="/" className="back-arrow">
+        ⟵
+      </Link>
 
       <div className="login-card">
         <h2 className="login-title">Login</h2>
 
         {success && <p className="login-success">{success}</p>}
-        {errors.general && (
-          <p className="login-error">{errors.general}</p>
-        )}
+        {errors.general && <p className="login-error">{errors.general}</p>}
 
         <form onSubmit={handleSubmit} className="login-form">
-
           <div className="form-group">
             <input
               type="email"
@@ -83,7 +82,9 @@ export default function Login() {
             <label className="form-label">Password</label>
           </div>
 
-          <button type="submit" className="btn-login">Login</button>
+          <button type="submit" className="btn-login">
+            Login
+          </button>
 
           <p className="login-register">
             Belum punya akun?

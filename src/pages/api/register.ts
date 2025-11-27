@@ -1,5 +1,5 @@
 import { NextApiRequest, NextApiResponse } from "next";
-import clientPromise from "../../lib/mongodb"; // Import koneksi MongoDB
+import clientPromise from "@/lib/mongodb"; // Path menggunakan alias
 import bcrypt from "bcryptjs"; // Untuk mengenkripsi password
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
@@ -12,7 +12,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
 
     try {
       const client = await clientPromise;
-      const db = client.db();
+      const db = client.db(process.env.DB_NAME);
       const usersCollection = db.collection("users");
 
       // Cek apakah email sudah ada di database

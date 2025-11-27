@@ -1,4 +1,7 @@
 // src/components/Dashboard.tsx
+import { useState } from 'react';
+import Sidebar from '../components/Sidebar'; // Mengimpor Sidebar
+
 const Dashboard = () => {
   return (
     <div className="dashboard-container">

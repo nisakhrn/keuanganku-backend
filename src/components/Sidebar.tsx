@@ -1,7 +1,6 @@
 // src/components/Sidebar.tsx
-import Link from 'next/link';  // Menggunakan Link dari next/link
+import Link from 'next/link';  // Menggunakan Link dari Next.js
 import { useRouter } from 'next/router';  // Menggunakan useRouter untuk mengetahui route aktif
-import '../styles/sidebar.css'; // Pastikan file CSS ini ada
 
 const Sidebar = () => {
   const router = useRouter();  // Hook untuk mengetahui path aktif
@@ -35,7 +34,7 @@ const Sidebar = () => {
             <li key={item.path}>
               <Link href={item.path}>
                 <a
-                  className={`sidebar-link ${router.pathname === item.path ? "active" : ""}`}
+                  className={`sidebar-link ${router.pathname === item.path ? "active" : ""}`}  // Aktifkan link sesuai route
                 >
                   <i className={item.icon}></i>
                   <span>{item.label}</span>

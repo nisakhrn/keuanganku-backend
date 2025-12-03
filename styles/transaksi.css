@@ -1,0 +1,330 @@
+/* Layout / container */
+.transaksi-container {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  flex: 1;
+  overflow-y: auto;
+  background-color: #f3f6f8;
+  padding: 10px;
+}
+
+/* Card */
+.transaksi-form-card,
+.transactions-list-card {
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  width: 100%; 
+  padding: 18px;
+  margin-bottom: 1.75rem;
+  border: 1px solid rgba(15, 23, 42, 0.03);
+}
+
+/* Title */
+.transaksi-title {
+  font-size: 1.0625rem;
+  font-weight: 700;
+  color: #111827;
+  margin-bottom: 20px;
+}
+
+/* Main form structure */
+.transaksi-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Full width block (untuk jenis transaksi) */
+.form-full-width {
+  width: 100%;
+}
+
+/* Jenis transaksi pills */
+.jenis-transaksi-group {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+.radio-hidden {
+  display: none;
+}
+
+.jenis-label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  height: 50px;
+  padding: 0 16px;
+  border: 2px solid #e6e9ee;
+  border-radius: 8px;
+  background-color: #fbfbfe;
+  color: #6b7280;
+  font-weight: 700;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.jenis-label i {
+  font-size: 1rem;
+}
+
+.jenis-label-active-pemasukan {
+  border-color: #6366f1;
+  background-color: #eff6ff;
+  color: #4f46e5;
+  box-shadow: 0 8px 20px rgba(99, 102, 241, 0.08);
+}
+
+.jenis-label-active-pengeluaran {
+  border-color: #ef4444;
+  background-color: #fef2f2;
+  color: #ef4444;
+  box-shadow: 0 8px 20px rgba(239, 68, 68, 0.08);
+}
+
+/* Grid untuk input fields (2 kolom) */
+.form-grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  width: 100%;
+}
+
+.form-group {
+  position: relative;
+  width: 100%;
+  margin: 0;
+}
+
+/* Input styling */
+.form-input {
+  display: block;
+  width: 100%;
+  height: 48px;
+  padding: 0 14px;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  background-color: #fff;
+  font-size: 0.95rem;
+  color: #111827;
+  outline: none;
+  transition: all 0.12s ease;
+  box-sizing: border-box;
+}
+
+.form-input::placeholder {
+  color: #9ca3af;
+  opacity: 1;
+}
+
+.form-input:focus {
+  border-color: #6366f1;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.05);
+}
+
+/* Select styling */
+.form-select-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.form-select {
+  appearance: none;
+  padding-right: 40px;
+  height: 48px;
+  box-sizing: border-box;
+}
+
+.select-icon {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  color: #9ca3af;
+  font-size: 0.85rem;
+}
+
+/* Submit button */
+.submit-button {
+  width: 100%;
+  height: 48px;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+  margin-top: 8px;
+}
+
+.submit-button.gradient {
+  background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #a855f7 100%);
+  box-shadow: 0 10px 30px rgba(99, 102, 241, 0.15);
+}
+
+.submit-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 35px rgba(99, 102, 241, 0.2);
+}
+
+/* Table styling */
+.table-wrapper {
+  overflow-x: auto;
+  margin-top: 12px;
+}
+
+.transactions-table {
+  min-width: 100%;
+  border-collapse: collapse;
+}
+
+.table-header {
+  padding: 14px 16px;
+  background-color: #fbfdff;
+  text-align: left;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #6b7280;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.table-header-right {
+  text-align: right;
+}
+
+.table-row {
+  border-top: 1px solid #e5e7eb;
+  transition: background-color 0.12s ease;
+}
+
+.table-row:hover {
+  background-color: #f9fafb;
+}
+
+.table-cell {
+  padding: 14px 16px;
+  font-size: 0.95rem;
+  color: #374151;
+}
+
+.table-cell-right {
+  text-align: right;
+}
+
+.transaction-desc {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.transaction-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.icon-pemasukan {
+  background-color: #ecfdf5;
+}
+
+.icon-pemasukan i {
+  color: #16a34a;
+  font-size: 1rem;
+}
+
+.icon-pengeluaran {
+  background-color: #fef2f2;
+}
+
+.icon-pengeluaran i {
+  color: #dc2626;
+  font-size: 1rem;
+}
+
+.transaction-text {
+  font-weight: 600;
+  color: #111827;
+}
+
+.category-badge {
+  display: inline-block;
+  padding: 6px 12px;
+  background-color: #f3f4f6;
+  color: #374151;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.table-date {
+  font-size: 0.9rem;
+  color: #6b7280;
+}
+
+.amount-text {
+  font-weight: 700;
+  font-size: 0.95rem;
+}
+
+.amount-pemasukan {
+  color: #16a34a;
+}
+
+.amount-pengeluaran {
+  color: #dc2626;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .transaksi-container {
+    padding: 16px;
+  }
+
+  .transaksi-form-card {
+    padding: 20px;
+  }
+
+  .jenis-transaksi-group {
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+
+  .jenis-label {
+    height: 48px;
+    font-size: 0.9rem;
+    padding: 0 12px;
+  }
+
+  .form-grid-2 {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .form-input,
+  .form-select {
+    height: 46px;
+  }
+
+  .submit-button {
+    height: 46px;
+    font-size: 0.9rem;
+  }
+}

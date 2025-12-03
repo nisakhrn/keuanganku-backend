@@ -21,9 +21,10 @@ export default function Login() {
   const handleSubmit = async (e: any) => {
     e.preventDefault();
 
-    const res = await fetch("/api/login", {
+    const res = await fetch("/api/auth/login", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
+      credentials: "include",   // 🔥 WAJIB supaya session cookie tersimpan
       body: JSON.stringify(formData),
     });
 
@@ -34,13 +35,13 @@ export default function Login() {
       return;
     }
 
-    // Simpan sesi pengguna setelah login berhasil
+    // Simpan user ke localStorage (opsional)
     localStorage.setItem("currentUser", JSON.stringify(data.user));
 
     setSuccess("Login berhasil!");
     setErrors({});
 
-    window.location.href = "/dashboard";  // Redirect ke dashboard setelah login berhasil
+    window.location.href = "/dashboard";
   };
 
   return (

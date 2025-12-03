@@ -1,57 +1,91 @@
-// src/components/Sidebar.tsx
-import Link from 'next/link';  // Menggunakan Link dari Next.js
-import { useRouter } from 'next/router';  // Menggunakan useRouter untuk mengetahui route aktif
+import Link from "next/link";
+import { useRouter } from "next/router";
+import React, { useState } from "react";
 
-const Sidebar = () => {
-  const router = useRouter();  // Hook untuk mengetahui path aktif
+interface MenuItem {
+  path: string;
+  icon: string;
+  label: string;
+}
 
-  // Menu items untuk sidebar
-  const menuItems = [
+const Sidebar: React.FC = () => {
+  const router = useRouter();
+  const [showLogoutModal, setShowLogoutModal] = useState(false);
+
+  const menuItems: MenuItem[] = [
     { path: "/dashboard", icon: "fas fa-home", label: "Dashboard" },
     { path: "/transaksi", icon: "fas fa-exchange-alt", label: "Transaksi" },
     { path: "/riwayat", icon: "fas fa-history", label: "Riwayat Transaksi" },
     { path: "/profile", icon: "fas fa-user-circle", label: "Profil" },
   ];
 
-  // Fungsi untuk logout
   const handleLogout = () => {
     localStorage.removeItem("currentUser");
-    router.push("/login");  // Navigasi ke halaman login setelah logout
+    router.push("/login");
+  };
+
+  const isActive = (path: string): boolean => {
+    return router.pathname === path;
   };
 
   return (
-    <aside className="sidebar">
-      <div className="sidebar-logo">
-        <div className="logo-icon">
-          <i className="fas fa-wallet"></i>
+    <>
+      <aside className="sidebar">
+        <div className="sidebar-logo">
+          <div className="logo-icon">
+            <i className="fas fa-wallet"></i>
+          </div>
+          <span>KeuanganKu</span>
         </div>
-        <span>KeuanganKu</span>
-      </div>
 
-      <nav className="sidebar-nav">
-        <ul>
-          {menuItems.map((item) => (
-            <li key={item.path}>
-              <Link href={item.path}>
-                <a
-                  className={`sidebar-link ${router.pathname === item.path ? "active" : ""}`}  // Aktifkan link sesuai route
+        <nav className="sidebar-nav">
+          <ul>
+            {menuItems.map((item) => (
+              <li key={item.path}>
+                <Link
+                  href={item.path}
+                  className={`sidebar-link ${isActive(item.path) ? "active" : ""}`}
                 >
                   <i className={item.icon}></i>
                   <span>{item.label}</span>
-                </a>
-              </Link>
-            </li>
-          ))}
-        </ul>
-      </nav>
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </nav>
 
-      <div className="sidebar-logout">
-        <button onClick={handleLogout} className="sidebar-link logout-button">
-          <i className="fas fa-sign-out-alt"></i>
-          <span>Keluar</span>
-        </button>
-      </div>
-    </aside>
+        <div className="sidebar-footer">
+          <button
+            onClick={() => setShowLogoutModal(true)}
+            className="sidebar-link logout-button"
+          >
+            <i className="fas fa-sign-out-alt"></i>
+            <span>Keluar</span>
+          </button>
+        </div>
+      </aside>
+
+      {/* POPUP MODAL */}
+      {showLogoutModal && (
+        <div className="modal-overlay">
+          <div className="modal-box">
+            <p>Yakin mau keluar?</p>
+
+            <div className="modal-actions">
+              <button onClick={handleLogout} className="btn-yes">
+                Ya
+              </button>
+              <button
+                onClick={() => setShowLogoutModal(false)}
+                className="btn-no"
+              >
+                Tidak
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+    </>
   );
 };
 

@@ -1,7 +1,7 @@
 // src/components/AppContext.tsx
 import React, { createContext, useContext, useState } from 'react';
 
-// Definisikan tipe untuk pengguna yg bagaimana
+// Definisikan tipe untuk pengguna
 interface User {
   name: string;
   email: string;

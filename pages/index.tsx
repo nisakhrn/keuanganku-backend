@@ -20,6 +20,7 @@ const Landing = () => {
             <div className="desktop-menu">
               <button className="nav-link">Fitur</button>
               <button className="nav-link">Keuntungan</button>
+              <button className="nav-link">Tim Pengembang</button>
               <Link href="/login">
                 <button className="btn-login">Masuk</button>
               </Link>
@@ -141,6 +142,34 @@ const Landing = () => {
                 <li className="cta-list-item">→ Setup dalam 2 menit</li>
               </ul>
               <button className="cta-card-button">Daftar Sekarang</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Tim Pengembang Section */}
+      <section id="team" className="team-section">
+        <div className="section-container">
+          <div className="section-header">
+            <h2 className="section-title">Tim Pengembang</h2>
+            <p className="section-subtitle">Berikut adalah tim pengembang yang bekerja keras untuk menciptakan aplikasi KeuanganKu</p>
+          </div>
+          <div className="team-grid">
+            <div className="team-card">
+              <div className="team-photo-wrap">
+                <img src="https://i.ibb.co.com/ds7Wp0wD/dian1.jpg" className="team-photo" alt="Developer" />
+              </div>
+              <div className="team-name">Dian Nazira</div>
+              <div className="team-npm">NPM: 2308107010011</div>
+              <div className="team-role">Developer</div>
+            </div>
+            <div className="team-card">
+              <div className="team-photo-wrap">
+                <img src="https://i.ibb.co.com/d0fWGVNM/nisa1.jpg" className="team-photo" alt="Designer" />
+              </div>
+              <div className="team-name">Khairun Nisa</div>
+              <div className="team-npm">NPM: 2308107010074</div>
+              <div className="team-role">Designer</div>
             </div>
           </div>
         </div>

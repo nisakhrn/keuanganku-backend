@@ -1,4 +1,4 @@
-name: CI/CD - Keuanganku Backend
+name: CI - Keuanganku Backend
 
 on:
   push:
@@ -6,7 +6,7 @@ on:
       - main
 
 jobs:
-  build-and-deploy:
+  build:
     runs-on: ubuntu-latest
 
     steps:
@@ -22,16 +22,9 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      # Opsional: jalankan test kalau nanti ada
+      # Opsional, kalau ada test:
       # - name: Run tests
       #   run: npm test
 
       - name: Build Next.js app
         run: npm run build
-
-      - name: Deploy to Vercel
-        uses: vercel/vercel-action@v1
-        with:
-          vercel-token: ${{ secrets.VERCEL_TOKEN }}
-          scope: khairun-nisas-projects-83d24409
-          production: true

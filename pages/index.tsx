@@ -212,7 +212,7 @@ const Landing = () => {
             <div className="team-card">
               <div className="team-photo-wrap">
                 <img
-                  src="https://i.ibb.co.com/ds7Wp0wD/dian1.jpg"
+                  src="https://i.ibb.co.com/HLcfzbB4/dian1.jpg"
                   className="team-photo"
                   alt="Developer"
                 />

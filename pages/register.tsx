@@ -22,7 +22,6 @@ export default function Register() {
     setErrors({});
     setSuccess("");
 
-    // Validasi password
     if (formData.password !== formData.password_confirmation) {
       setErrors({ password_confirmation: "Password tidak sama" });
       return;
@@ -51,86 +50,89 @@ export default function Register() {
   };
 
   return (
-    <div className="register-wrapper">
-      <Link href="/" className="back-arrow">
+    <div className="login-layout">
+
+      {/* 🔙 BACK ARROW */}
+      <Link href="/" className="back-btn">
         ←
       </Link>
 
-      <div className="register-card">
-        <h2 className="register-title">Register</h2>
+      {/* LEFT SIDE */}
+      <div className="login-left">
+        <h1 className="welcome-title">Create Account</h1>
+        <p className="welcome-desc">
+          Buat akun baru untuk mulai mengelola catatan keuanganmu secara lebih mudah.
+        </p>
+      </div>
 
-        {success && <p className="register-success">{success}</p>}
-        {errors.general && <p className="register-error">{errors.general}</p>}
+      {/* RIGHT SIDE (REGISTER CARD) */}
+      <div className="login-card">
+        <h1 className="login-title">Register</h1>
 
-        <form onSubmit={handleSubmit} className="register-form">
-          <div className="form-group">
+        {success && <p className="success-message">{success}</p>}
+        {errors.general && <p className="error-message">{errors.general}</p>}
+
+        <form onSubmit={handleSubmit}>
+
+          <div className="input-group">
+            <label className="input-label">Name</label>
             <input
               type="text"
               name="name"
-              placeholder=" "
-              className="form-input"
+              className="input-field"
+              placeholder="Your Name"
               value={formData.name}
               onChange={handleChange}
-              required
             />
-            <label className="form-label">Name</label>
           </div>
 
-          <div className="form-group">
+          <div className="input-group">
+            <label className="input-label">Email</label>
             <input
               type="email"
               name="email"
-              placeholder=" "
-              className="form-input"
+              className="input-field"
+              placeholder="example@mail.com"
               value={formData.email}
               onChange={handleChange}
-              required
             />
-            <label className="form-label">Email</label>
-            {errors.email && <p className="register-error">{errors.email}</p>}
           </div>
 
-          <div className="form-group">
+          <div className="input-group">
+            <label className="input-label">Password</label>
             <input
               type="password"
               name="password"
-              placeholder=" "
-              className="form-input"
+              className="input-field"
+              placeholder="••••••••"
               value={formData.password}
               onChange={handleChange}
-              required
             />
-            <label className="form-label">Password</label>
           </div>
 
-          <div className="form-group">
+          <div className="input-group">
+            <label className="input-label">Confirm Password</label>
             <input
               type="password"
               name="password_confirmation"
-              placeholder=" "
-              className="form-input"
+              className="input-field"
+              placeholder="••••••••"
               value={formData.password_confirmation}
               onChange={handleChange}
-              required
             />
-            <label className="form-label">Confirm Password</label>
             {errors.password_confirmation && (
-              <p className="register-error">{errors.password_confirmation}</p>
+              <p className="error-message">{errors.password_confirmation}</p>
             )}
           </div>
 
-          <button type="submit" className="btn-register">
-            Register
-          </button>
+          <button className="login-btn">Register</button>
 
-          <p className="register-login">
-            Sudah punya akun?{" "}
-            <Link href="/login" className="login-link">
-              Login
-            </Link>
+          <p className="register-text">
+            Sudah punya akun? <a href="/login">Login</a>
           </p>
         </form>
       </div>
+
     </div>
   );
 }

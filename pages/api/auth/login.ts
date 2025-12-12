@@ -14,10 +14,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
     if (!email || !password) {
       logger.warn("Login validation failed: missing email or password", { email });
-      return res.status(400).json({
-        success: false,
-        message: "Email dan password wajib diisi",
-      });
+      return res.status(400).json({ success: false, message: "Email dan password wajib diisi" });
     }
 
     const client = await clientPromise;
@@ -26,21 +23,16 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
     if (!user) {
       logger.warn("Login failed: user not found", { email });
-      return res.status(401).json({
-        success: false,
-        message: "Email atau password salah",
-      });
+      return res.status(401).json({ success: false, message: "Email atau password salah" });
     }
 
     const isValid = await bcrypt.compare(password, user.password);
     if (!isValid) {
       logger.warn("Login failed: wrong password", { email });
-      return res.status(401).json({
-        success: false,
-        message: "Email atau password salah",
-      });
+      return res.status(401).json({ success: false, message: "Email atau password salah" });
     }
 
+    // Set cookie
     res.setHeader(
       "Set-Cookie",
       `userId=${user._id}; Path=/; HttpOnly; SameSite=Lax; Max-Age=86400`
@@ -57,15 +49,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       },
     });
   } catch (err: any) {
-    logger.error("Unhandled error in /api/auth/login", {
-      error: err?.message,
-      stack: err?.stack,
-    });
-
-    return res.status(500).json({
-      success: false,
-      message: "Terjadi kesalahan pada server!",
-      error: err.message,
-    });
+    logger.error("Unhandled error in /api/auth/login", { error: err?.message, stack: err?.stack });
+    return res.status(500).json({ success: false, message: "Terjadi kesalahan pada server!", error: err.message });
   }
 }

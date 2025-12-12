@@ -1,5 +1,6 @@
 // src/lib/logger.ts
-type LogLevel = "info" | "warn" | "error";
+
+export type LogLevel = "info" | "warn" | "error";
 
 function log(level: LogLevel, message: string, meta?: Record<string, any>) {
   const payload = {
@@ -8,7 +9,8 @@ function log(level: LogLevel, message: string, meta?: Record<string, any>) {
     meta,
     timestamp: new Date().toISOString(),
   };
-  // sementara cukup console.log JSON
+
+  // Tulis log sebagai JSON supaya mudah dibaca di Vercel Logs / tools lain
   console.log(JSON.stringify(payload));
 }
 

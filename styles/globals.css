@@ -70,3 +70,45 @@
 .modal-btn.cancel:hover {
   background: #b3b3b3;
 }
+
+
+
+/* ========================================================= */
+/* ========== TOMBOL MASUK & DAFTAR (LANDING PAGE) ========= */
+/* ========================================================= */
+
+/* Tombol "Masuk" — Ungu Gradasi */
+.btn-login {
+  padding: 12px 32px;
+  background: linear-gradient(135deg, #BA9BFF, #8E63C9, #6A2C91);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 1.15rem;
+  cursor: pointer;
+  transition: 0.25s ease;
+}
+
+.btn-login:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(106, 44, 145, 0.4);
+}
+
+
+/* Tombol "Daftar" — putih dengan garis ungu */
+.btn-register {
+  padding: 12px 32px;
+  background: white;
+  color: #6A2C91;
+  border: 2px solid #6A2C91;
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 1.15rem;
+  cursor: pointer;
+  transition: 0.25s ease;
+}
+
+.btn-register:hover {
+  background: #F1EFFF;
+}

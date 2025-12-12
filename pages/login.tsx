@@ -1,99 +1,95 @@
 "use client";
+
+import React, { useState } from "react";
 import Link from "next/link";
-import { useState } from "react";
+import { useRouter } from "next/navigation";
+import toast, { Toaster } from "react-hot-toast";
 
 export default function Login() {
-  const [formData, setFormData] = useState({
-    email: "",
-    password: "",
-  });
+  const router = useRouter();
 
-  const [errors, setErrors] = useState<any>({});
-  const [success, setSuccess] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [loading, setLoading] = useState(false);
 
-  const handleChange = (e: any) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
-  };
-
-  const handleSubmit = async (e: any) => {
+  const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
+    setLoading(true);
 
-    const res = await fetch("/api/auth/login", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      credentials: "include",   // 🔥 WAJIB supaya session cookie tersimpan
-      body: JSON.stringify(formData),
-    });
+    try {
+      const res = await fetch("/api/auth/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, password }),
+      });
 
-    const data = await res.json();
+      const data = await res.json();
 
-    if (!res.ok) {
-      setErrors({ general: data.message });
-      return;
+      if (!data.success) {
+        toast.error(data.message || "Login gagal");
+        setLoading(false);
+        return;
+      }
+
+      // Login berhasil
+      localStorage.setItem("currentUser", JSON.stringify(data.user));
+      toast.success("Login berhasil!");
+
+      // Redirect langsung ke dashboard
+      router.push("/dashboard");
+    } catch (err) {
+      toast.error("Terjadi kesalahan saat login");
+      setLoading(false);
     }
-
-    // Simpan user ke localStorage (opsional)
-    localStorage.setItem("currentUser", JSON.stringify(data.user));
-
-    setSuccess("Login berhasil!");
-    setErrors({});
-
-    window.location.href = "/dashboard";
   };
 
   return (
-    <div className="login-wrapper">
-      <Link href="/" className="back-arrow">
-        ⟵
-      </Link>
+    <div className="login-layout">
+      <Toaster position="top-center" />
+
+      <Link href="/" className="back-btn">←</Link>
+
+      <div className="login-left">
+        <h1 className="welcome-title">Welcome!</h1>
+        <p className="welcome-desc">Login untuk melanjutkan ke aplikasi pencatatan keuanganmu.</p>
+      </div>
 
       <div className="login-card">
-        <h2 className="login-title">Login</h2>
+        <h1 className="login-title">Sign In</h1>
 
-        {success && <p className="login-success">{success}</p>}
-        {errors.general && <p className="login-error">{errors.general}</p>}
-
-        <form onSubmit={handleSubmit} className="login-form">
-          <div className="form-group">
+        <form onSubmit={handleLogin}>
+          <div className="input-group">
+            <label className="input-label">Email</label>
             <input
               type="email"
-              name="email"
-              placeholder=" "
-              className="form-input"
-              value={formData.email}
-              onChange={handleChange}
+              className="input-field"
+              placeholder="example@mail.com"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
               required
             />
-            <label className="form-label">Email</label>
           </div>
 
-          <div className="form-group">
+          <div className="input-group">
+            <label className="input-label">Password</label>
             <input
               type="password"
-              name="password"
-              placeholder=" "
-              className="form-input"
-              value={formData.password}
-              onChange={handleChange}
+              className="input-field"
+              placeholder="••••••••"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
               required
             />
-            <label className="form-label">Password</label>
           </div>
 
-          <button type="submit" className="btn-login">
-            Login
+          <button type="submit" className="login-btn" disabled={loading}>
+            {loading ? "Logging in..." : "Login"}
           </button>
-
-          <p className="login-register">
-            Belum punya akun?
-            <Link href="/register" className="register-link">
-              Register
-            </Link>
-          </p>
         </form>
+
+        <p className="register-text">
+          Belum punya akun? <Link href="/register">Register</Link>
+        </p>
       </div>
     </div>
   );

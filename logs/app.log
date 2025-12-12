@@ -1,0 +1,15 @@
+{"level":"info","message":"Login success","meta":{"userId":"6930abcf341619401204c6c9","email":"khairunn@gmail.com"},"timestamp":"2025-12-12T11:23:10.380Z"}
+{"level":"info","message":"Login success","meta":{"userId":"6930abcf341619401204c6c9","email":"khairunn@gmail.com"},"timestamp":"2025-12-12T11:23:11.326Z"}
+{"level":"info","message":"Transactions fetched","meta":{"userEmail":"khairunn@gmail.com","count":7},"timestamp":"2025-12-12T11:23:53.413Z"}
+{"level":"info","message":"Transactions fetched","meta":{"userEmail":"khairunn@gmail.com","count":7},"timestamp":"2025-12-12T11:24:00.928Z"}
+{"level":"info","message":"Transaction created","meta":{"userEmail":"khairunn@gmail.com","jenis":"pemasukan","kategori":"Gaji","jumlah":300000},"timestamp":"2025-12-12T11:25:06.561Z"}
+{"level":"info","message":"Transactions fetched","meta":{"userEmail":"khairunn@gmail.com","count":8},"timestamp":"2025-12-12T11:25:06.628Z"}
+{"level":"info","message":"Transaction created","meta":{"userEmail":"khairunn@gmail.com","jenis":"pengeluaran","kategori":"Transportasi","jumlah":50000},"timestamp":"2025-12-12T11:26:06.398Z"}
+{"level":"info","message":"Transactions fetched","meta":{"userEmail":"khairunn@gmail.com","count":9},"timestamp":"2025-12-12T11:26:06.458Z"}
+{"level":"info","message":"Transactions fetched","meta":{"userEmail":"khairunn@gmail.com","count":9},"timestamp":"2025-12-12T11:26:11.175Z"}
+{"level":"info","message":"Transactions fetched","meta":{"userEmail":"khairunn@gmail.com","count":9},"timestamp":"2025-12-12T11:26:25.879Z"}
+{"level":"info","message":"Transactions fetched","meta":{"userEmail":"khairunn@gmail.com","count":9},"timestamp":"2025-12-12T11:26:34.662Z"}
+{"level":"info","message":"me: user loaded","meta":{"userId":"6930abcf341619401204c6c9"},"timestamp":"2025-12-12T11:27:36.019Z"}
+{"level":"info","message":"me: user loaded","meta":{"userId":"6930abcf341619401204c6c9"},"timestamp":"2025-12-12T11:27:36.336Z"}
+{"level":"warn","message":"Login failed: user not found","meta":{"email":"nkhairun044@gmail.com"},"timestamp":"2025-12-12T11:30:47.609Z"}
+{"level":"warn","message":"Login failed: user not found","meta":{"email":"nkhairun044@gmail.com"},"timestamp":"2025-12-12T11:30:50.119Z"}

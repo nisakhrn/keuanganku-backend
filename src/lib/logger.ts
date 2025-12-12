@@ -1,6 +1,19 @@
 // src/lib/logger.ts
+import fs from "fs";
+import path from "path";
 
 export type LogLevel = "info" | "warn" | "error";
+
+const logFilePath = path.join(process.cwd(), "logs", "app.log");
+
+function writeToFile(line: string) {
+  try {
+    fs.mkdirSync(path.dirname(logFilePath), { recursive: true });
+    fs.appendFileSync(logFilePath, line + "\n");
+  } catch {
+    // Biarkan saja kalau gagal tulis file, jangan bikin API crash
+  }
+}
 
 function log(level: LogLevel, message: string, meta?: Record<string, any>) {
   const payload = {
@@ -10,8 +23,10 @@ function log(level: LogLevel, message: string, meta?: Record<string, any>) {
     timestamp: new Date().toISOString(),
   };
 
-  // Tulis log sebagai JSON supaya mudah dibaca di Vercel Logs / tools lain
-  console.log(JSON.stringify(payload));
+  const line = JSON.stringify(payload);
+
+  console.log(line);        // buat Vercel / console
+  writeToFile(line);        // buat Promtail / Loki
 }
 
 export const logger = {

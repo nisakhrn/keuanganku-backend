@@ -13,3 +13,14 @@
 {"level":"info","message":"me: user loaded","meta":{"userId":"6930abcf341619401204c6c9"},"timestamp":"2025-12-12T11:27:36.336Z"}
 {"level":"warn","message":"Login failed: user not found","meta":{"email":"nkhairun044@gmail.com"},"timestamp":"2025-12-12T11:30:47.609Z"}
 {"level":"warn","message":"Login failed: user not found","meta":{"email":"nkhairun044@gmail.com"},"timestamp":"2025-12-12T11:30:50.119Z"}
+{"level":"info","message":"Login success","meta":{"userId":"6930abcf341619401204c6c9","email":"khairunn@gmail.com"},"timestamp":"2025-12-14T14:09:57.988Z"}
+{"level":"info","message":"Transactions fetched","meta":{"userEmail":"khairunn@gmail.com","count":34},"timestamp":"2025-12-14T14:10:13.489Z"}
+{"level":"error","message":"ERROR GET transaksi","meta":{"error":"Server selection timed out after 30000 ms","stack":"MongoServerSelectionError: Server selection timed out after 30000 ms\n    at Timeout._onTimeout (D:\\Anis\\sem 5\\popl\\project uas\\keuanganku-backend\\node_modules\\mongodb\\lib\\sdam\\topology.js:278:38)\n    at listOnTimeout (node:internal/timers:588:17)\n    at process.processTimers (node:internal/timers:523:7)"},"timestamp":"2025-12-14T14:11:50.197Z"}
+{"level":"info","message":"Transaction created","meta":{"userEmail":"khairunn@gmail.com","jenis":"pemasukan","kategori":"Bonus","jumlah":300000},"timestamp":"2025-12-14T14:13:45.740Z"}
+{"level":"info","message":"Transaction created","meta":{"userEmail":"khairunn@gmail.com","jenis":"pemasukan","kategori":"Bonus","jumlah":300000},"timestamp":"2025-12-14T14:13:45.844Z"}
+{"level":"info","message":"Transaction created","meta":{"userEmail":"khairunn@gmail.com","jenis":"pemasukan","kategori":"Bonus","jumlah":300000},"timestamp":"2025-12-14T14:13:46.959Z"}
+{"level":"info","message":"Transaction created","meta":{"userEmail":"khairunn@gmail.com","jenis":"pemasukan","kategori":"Bonus","jumlah":300000},"timestamp":"2025-12-14T14:13:48.576Z"}
+{"level":"info","message":"Transactions fetched","meta":{"userEmail":"khairunn@gmail.com","count":38},"timestamp":"2025-12-14T14:13:48.809Z"}
+{"level":"info","message":"Transactions fetched","meta":{"userEmail":"khairunn@gmail.com","count":38},"timestamp":"2025-12-14T14:13:48.948Z"}
+{"level":"info","message":"Transactions fetched","meta":{"userEmail":"khairunn@gmail.com","count":38},"timestamp":"2025-12-14T14:13:49.382Z"}
+{"level":"info","message":"Transactions fetched","meta":{"userEmail":"khairunn@gmail.com","count":38},"timestamp":"2025-12-14T14:13:49.524Z"}

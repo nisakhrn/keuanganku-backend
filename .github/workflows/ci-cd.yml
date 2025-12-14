@@ -1,4 +1,4 @@
-name: CI/CD - Keuanganku Backend
+name: CI - Keuanganku Backend
 
 on:
   push:
@@ -37,7 +37,14 @@ jobs:
           cache: npm
 
       - name: Install dependencies
-        run: npm ci
+        run: npm install
+
+      # Opsional: jalankan test kalau nanti ada
+      # - name: Run tests
+      #   run: npm test
+
+      - name: Build Next.js app
+        run: npm run build
 
       - name: Deploy to Vercel
         uses: amondnet/vercel-action@v25

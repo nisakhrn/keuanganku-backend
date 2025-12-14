@@ -13,6 +13,7 @@
 {"level":"info","message":"me: user loaded","meta":{"userId":"6930abcf341619401204c6c9"},"timestamp":"2025-12-12T11:27:36.336Z"}
 {"level":"warn","message":"Login failed: user not found","meta":{"email":"nkhairun044@gmail.com"},"timestamp":"2025-12-12T11:30:47.609Z"}
 {"level":"warn","message":"Login failed: user not found","meta":{"email":"nkhairun044@gmail.com"},"timestamp":"2025-12-12T11:30:50.119Z"}
+<<<<<<< HEAD
 {"level":"info","message":"Login success","meta":{"userId":"6930abcf341619401204c6c9","email":"khairunn@gmail.com"},"timestamp":"2025-12-14T14:09:57.988Z"}
 {"level":"info","message":"Transactions fetched","meta":{"userEmail":"khairunn@gmail.com","count":34},"timestamp":"2025-12-14T14:10:13.489Z"}
 {"level":"error","message":"ERROR GET transaksi","meta":{"error":"Server selection timed out after 30000 ms","stack":"MongoServerSelectionError: Server selection timed out after 30000 ms\n    at Timeout._onTimeout (D:\\Anis\\sem 5\\popl\\project uas\\keuanganku-backend\\node_modules\\mongodb\\lib\\sdam\\topology.js:278:38)\n    at listOnTimeout (node:internal/timers:588:17)\n    at process.processTimers (node:internal/timers:523:7)"},"timestamp":"2025-12-14T14:11:50.197Z"}
@@ -24,3 +25,57 @@
 {"level":"info","message":"Transactions fetched","meta":{"userEmail":"khairunn@gmail.com","count":38},"timestamp":"2025-12-14T14:13:48.948Z"}
 {"level":"info","message":"Transactions fetched","meta":{"userEmail":"khairunn@gmail.com","count":38},"timestamp":"2025-12-14T14:13:49.382Z"}
 {"level":"info","message":"Transactions fetched","meta":{"userEmail":"khairunn@gmail.com","count":38},"timestamp":"2025-12-14T14:13:49.524Z"}
+=======
+{"level":"info","message":"Login success","meta":{"userId":"6930abcf341619401204c6c9","email":"khairunn@gmail.com"},"timestamp":"2025-12-14T11:14:58.352Z"}
+{"level":"info","message":"Transactions fetched","meta":{"userEmail":"khairunn@gmail.com","count":9},"timestamp":"2025-12-14T11:15:04.710Z"}
+{"level":"info","message":"Transactions fetched","meta":{"userEmail":"khairunn@gmail.com","count":9},"timestamp":"2025-12-14T11:15:42.740Z"}
+{"level":"info","message":"Transaction created","meta":{"userEmail":"khairunn@gmail.com","jenis":"pengeluaran","kategori":"Makanan","jumlah":15000},"timestamp":"2025-12-14T11:16:09.605Z"}
+{"level":"info","message":"Transactions fetched","meta":{"userEmail":"khairunn@gmail.com","count":10},"timestamp":"2025-12-14T11:16:09.685Z"}
+{"level":"info","message":"Transactions fetched","meta":{"userEmail":"khairunn@gmail.com","count":10},"timestamp":"2025-12-14T11:16:15.808Z"}
+{"level":"info","message":"Transactions fetched","meta":{"userEmail":"khairunn@gmail.com","count":10},"timestamp":"2025-12-14T11:17:21.084Z"}
+{"level":"info","message":"Transactions fetched","meta":{"userEmail":"khairunn@gmail.com","count":10},"timestamp":"2025-12-14T11:17:23.891Z"}
+{"level":"info","message":"Transactions fetched","meta":{"userEmail":"khairunn@gmail.com","count":10},"timestamp":"2025-12-14T11:17:36.111Z"}
+{"level":"info","message":"Transaction created","meta":{"userEmail":"khairunn@gmail.com","jenis":"pemasukan","kategori":"Bonus","jumlah":1000000},"timestamp":"2025-12-14T11:18:06.033Z"}
+{"level":"info","message":"Transactions fetched","meta":{"userEmail":"khairunn@gmail.com","count":11},"timestamp":"2025-12-14T11:18:06.142Z"}
+{"level":"info","message":"Transaction created","meta":{"userEmail":"khairunn@gmail.com","jenis":"pengeluaran","kategori":"Belanja","jumlah":300000},"timestamp":"2025-12-14T11:18:57.590Z"}
+{"level":"info","message":"Transactions fetched","meta":{"userEmail":"khairunn@gmail.com","count":12},"timestamp":"2025-12-14T11:18:57.680Z"}
+{"level":"info","message":"Transactions fetched","meta":{"userEmail":"khairunn@gmail.com","count":12},"timestamp":"2025-12-14T11:19:28.142Z"}
+{"level":"info","message":"Transactions fetched","meta":{"userEmail":"khairunn@gmail.com","count":12},"timestamp":"2025-12-14T11:19:39.278Z"}
+{"level":"info","message":"Transaction created","meta":{"userEmail":"khairunn@gmail.com","jenis":"pengeluaran","kategori":"Makanan","jumlah":50000},"timestamp":"2025-12-14T11:20:35.331Z"}
+{"level":"info","message":"Transactions fetched","meta":{"userEmail":"khairunn@gmail.com","count":13},"timestamp":"2025-12-14T11:20:35.401Z"}
+{"level":"info","message":"Transaction created","meta":{"userEmail":"khairunn@gmail.com","jenis":"pengeluaran","kategori":"Belanja","jumlah":500000},"timestamp":"2025-12-14T11:21:32.969Z"}
+{"level":"info","message":"Transactions fetched","meta":{"userEmail":"khairunn@gmail.com","count":14},"timestamp":"2025-12-14T11:21:33.050Z"}
+{"level":"info","message":"Transactions fetched","meta":{"userEmail":"khairunn@gmail.com","count":14},"timestamp":"2025-12-14T11:21:37.850Z"}
+{"level":"info","message":"Transactions fetched","meta":{"userEmail":"khairunn@gmail.com","count":14},"timestamp":"2025-12-14T11:21:57.132Z"}
+{"level":"info","message":"Transaction created","meta":{"userEmail":"khairunn@gmail.com","jenis":"pemasukan","kategori":"Lainnya","jumlah":1000000},"timestamp":"2025-12-14T11:22:27.299Z"}
+{"level":"info","message":"Transactions fetched","meta":{"userEmail":"khairunn@gmail.com","count":15},"timestamp":"2025-12-14T11:22:27.383Z"}
+{"level":"info","message":"Transaction created","meta":{"userEmail":"khairunn@gmail.com","jenis":"pemasukan","kategori":"Lainnya","jumlah":1000000},"timestamp":"2025-12-14T11:24:36.009Z"}
+{"level":"info","message":"Transactions fetched","meta":{"userEmail":"khairunn@gmail.com","count":16},"timestamp":"2025-12-14T11:24:36.100Z"}
+{"level":"info","message":"Transaction created","meta":{"userEmail":"khairunn@gmail.com","jenis":"pemasukan","kategori":"Lainnya","jumlah":1500000},"timestamp":"2025-12-14T11:25:08.279Z"}
+{"level":"info","message":"Transactions fetched","meta":{"userEmail":"khairunn@gmail.com","count":17},"timestamp":"2025-12-14T11:25:08.359Z"}
+{"level":"info","message":"Transactions fetched","meta":{"userEmail":"khairunn@gmail.com","count":17},"timestamp":"2025-12-14T11:25:14.880Z"}
+{"level":"info","message":"Transactions fetched","meta":{"userEmail":"khairunn@gmail.com","count":17},"timestamp":"2025-12-14T11:25:20.939Z"}
+{"level":"info","message":"Transaction created","meta":{"userEmail":"khairunn@gmail.com","jenis":"pemasukan","kategori":"Lainnya","jumlah":800000},"timestamp":"2025-12-14T11:26:06.328Z"}
+{"level":"info","message":"Transactions fetched","meta":{"userEmail":"khairunn@gmail.com","count":18},"timestamp":"2025-12-14T11:26:06.431Z"}
+{"level":"info","message":"Transaction created","meta":{"userEmail":"khairunn@gmail.com","jenis":"pemasukan","kategori":"Lainnya","jumlah":1000000},"timestamp":"2025-12-14T11:26:39.457Z"}
+{"level":"info","message":"Transactions fetched","meta":{"userEmail":"khairunn@gmail.com","count":19},"timestamp":"2025-12-14T11:26:39.551Z"}
+{"level":"info","message":"Transaction created","meta":{"userEmail":"khairunn@gmail.com","jenis":"pemasukan","kategori":"Lainnya","jumlah":1200000},"timestamp":"2025-12-14T11:27:22.010Z"}
+{"level":"info","message":"Transactions fetched","meta":{"userEmail":"khairunn@gmail.com","count":20},"timestamp":"2025-12-14T11:27:22.090Z"}
+{"level":"info","message":"Transactions fetched","meta":{"userEmail":"khairunn@gmail.com","count":20},"timestamp":"2025-12-14T11:27:25.479Z"}
+{"level":"info","message":"Transactions fetched","meta":{"userEmail":"khairunn@gmail.com","count":20},"timestamp":"2025-12-14T11:27:55.499Z"}
+{"level":"info","message":"Transaction created","meta":{"userEmail":"khairunn@gmail.com","jenis":"pemasukan","kategori":"Lainnya","jumlah":800000},"timestamp":"2025-12-14T11:28:35.199Z"}
+{"level":"info","message":"Transactions fetched","meta":{"userEmail":"khairunn@gmail.com","count":21},"timestamp":"2025-12-14T11:28:35.279Z"}
+{"level":"info","message":"Transaction created","meta":{"userEmail":"khairunn@gmail.com","jenis":"pemasukan","kategori":"Lainnya","jumlah":1000000},"timestamp":"2025-12-14T11:29:06.838Z"}
+{"level":"info","message":"Transactions fetched","meta":{"userEmail":"khairunn@gmail.com","count":22},"timestamp":"2025-12-14T11:29:06.929Z"}
+{"level":"info","message":"Transaction created","meta":{"userEmail":"khairunn@gmail.com","jenis":"pemasukan","kategori":"Lainnya","jumlah":1000000},"timestamp":"2025-12-14T11:29:42.448Z"}
+{"level":"info","message":"Transactions fetched","meta":{"userEmail":"khairunn@gmail.com","count":23},"timestamp":"2025-12-14T11:29:42.529Z"}
+{"level":"info","message":"Transactions fetched","meta":{"userEmail":"khairunn@gmail.com","count":23},"timestamp":"2025-12-14T11:29:45.840Z"}
+{"level":"info","message":"Transactions fetched","meta":{"userEmail":"khairunn@gmail.com","count":23},"timestamp":"2025-12-14T11:29:57.240Z"}
+{"level":"error","message":"Unhandled error in /api/transaksi/add","meta":{"error":"getaddrinfo ENOTFOUND ac-pibz3yt-shard-00-00.mgvtqhj.mongodb.net","stack":"MongoServerSelectionError: getaddrinfo ENOTFOUND ac-pibz3yt-shard-00-00.mgvtqhj.mongodb.net\n    at Timeout._onTimeout (C:\\kuliah\\semester5\\POPL\\ProjekUAS\\keuanganku-backend\\node_modules\\mongodb\\lib\\sdam\\topology.js:278:38)\n    at listOnTimeout (node:internal/timers:594:17)\n    at process.processTimers (node:internal/timers:529:7)"},"timestamp":"2025-12-14T11:30:55.073Z"}
+{"level":"error","message":"Unhandled error in /api/transaksi/add","meta":{"error":"getaddrinfo ENOTFOUND ac-pibz3yt-shard-00-00.mgvtqhj.mongodb.net","stack":"MongoServerSelectionError: getaddrinfo ENOTFOUND ac-pibz3yt-shard-00-00.mgvtqhj.mongodb.net\n    at Timeout._onTimeout (C:\\kuliah\\semester5\\POPL\\ProjekUAS\\keuanganku-backend\\node_modules\\mongodb\\lib\\sdam\\topology.js:278:38)\n    at listOnTimeout (node:internal/timers:594:17)\n    at process.processTimers (node:internal/timers:529:7)"},"timestamp":"2025-12-14T11:31:02.328Z"}
+{"level":"error","message":"Unhandled error in /api/transaksi/add","meta":{"error":"getaddrinfo ENOTFOUND ac-pibz3yt-shard-00-00.mgvtqhj.mongodb.net","stack":"MongoServerSelectionError: getaddrinfo ENOTFOUND ac-pibz3yt-shard-00-00.mgvtqhj.mongodb.net\n    at Timeout._onTimeout (C:\\kuliah\\semester5\\POPL\\ProjekUAS\\keuanganku-backend\\node_modules\\mongodb\\lib\\sdam\\topology.js:278:38)\n    at listOnTimeout (node:internal/timers:594:17)\n    at process.processTimers (node:internal/timers:529:7)"},"timestamp":"2025-12-14T11:31:04.642Z"}
+{"level":"error","message":"Unhandled error in /api/transaksi/add","meta":{"error":"getaddrinfo ENOTFOUND ac-pibz3yt-shard-00-00.mgvtqhj.mongodb.net","stack":"MongoServerSelectionError: getaddrinfo ENOTFOUND ac-pibz3yt-shard-00-00.mgvtqhj.mongodb.net\n    at Timeout._onTimeout (C:\\kuliah\\semester5\\POPL\\ProjekUAS\\keuanganku-backend\\node_modules\\mongodb\\lib\\sdam\\topology.js:278:38)\n    at listOnTimeout (node:internal/timers:594:17)\n    at process.processTimers (node:internal/timers:529:7)"},"timestamp":"2025-12-14T11:31:06.808Z"}
+{"level":"error","message":"Unhandled error in /api/transaksi/add","meta":{"error":"getaddrinfo ENOTFOUND ac-pibz3yt-shard-00-00.mgvtqhj.mongodb.net","stack":"MongoServerSelectionError: getaddrinfo ENOTFOUND ac-pibz3yt-shard-00-00.mgvtqhj.mongodb.net\n    at Timeout._onTimeout (C:\\kuliah\\semester5\\POPL\\ProjekUAS\\keuanganku-backend\\node_modules\\mongodb\\lib\\sdam\\topology.js:278:38)\n    at listOnTimeout (node:internal/timers:594:17)\n    at process.processTimers (node:internal/timers:529:7)"},"timestamp":"2025-12-14T11:31:10.775Z"}
+{"level":"error","message":"Unhandled error in /api/transaksi/add","meta":{"error":"getaddrinfo ENOTFOUND ac-pibz3yt-shard-00-00.mgvtqhj.mongodb.net","stack":"MongoServerSelectionError: getaddrinfo ENOTFOUND ac-pibz3yt-shard-00-00.mgvtqhj.mongodb.net\n    at Timeout._onTimeout (C:\\kuliah\\semester5\\POPL\\ProjekUAS\\keuanganku-backend\\node_modules\\mongodb\\lib\\sdam\\topology.js:278:38)\n    at listOnTimeout (node:internal/timers:594:17)\n    at process.processTimers (node:internal/timers:529:7)"},"timestamp":"2025-12-14T11:31:11.412Z"}
+{"level":"error","message":"Unhandled error in /api/transaksi/add","meta":{"error":"getaddrinfo ENOTFOUND ac-pibz3yt-shard-00-00.mgvtqhj.mongodb.net","stack":"MongoServerSelectionError: getaddrinfo ENOTFOUND ac-pibz3yt-shard-00-00.mgvtqhj.mongodb.net\n    at Timeout._onTimeout (C:\\kuliah\\semester5\\POPL\\ProjekUAS\\keuanganku-backend\\node_modules\\mongodb\\lib\\sdam\\topology.js:278:38)\n    at listOnTimeout (node:internal/timers:594:17)\n    at process.processTimers (node:internal/timers:529:7)"},"timestamp":"2025-12-14T11:31:25.308Z"}
+>>>>>>> f52acb488a7c8e067537cc707192c75abce90e31

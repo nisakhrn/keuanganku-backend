@@ -219,7 +219,7 @@ const Landing = () => {
               </div>
               <div className="team-name">Dian Nazira</div>
               <div className="team-npm">NPM: 2308107010011</div>
-              <div className="team-role">Developer</div>
+              <div className="team-role">Designer</div>
             </div>
 
             <div className="team-card">
@@ -232,7 +232,7 @@ const Landing = () => {
               </div>
               <div className="team-name">Khairun Nisa</div>
               <div className="team-npm">NPM: 2308107010074</div>
-              <div className="team-role">Designer</div>
+              <div className="team-role">Developer</div>
             </div>
 
           </div>

@@ -214,7 +214,7 @@ const Landing = () => {
                 <img
                   src="https://i.ibb.co.com/HLcfzbB4/dian1.jpg"
                   className="team-photo"
-                  alt="Developer"
+                  alt="Designer"
                 />
               </div>
               <div className="team-name">Dian Nazira</div>
@@ -227,7 +227,7 @@ const Landing = () => {
                 <img
                   src="https://i.ibb.co.com/d0fWGVNM/nisa1.jpg"
                   className="team-photo"
-                  alt="Designer"
+                  alt="Developer"
                 />
               </div>
               <div className="team-name">Khairun Nisa</div>
